@@ -25,8 +25,13 @@ class Count extends React.Component{
     render(){
         return(
             <div className = "gameDiv">
-                <h1>{this.state.count}</h1>
-                <IonButton className = "gameButton" onClick = {this.handleClick} >Count</IonButton>
+                <ion-col class="ion-padding">
+      <div>
+      <h1 className ="counter">{this.state.count}</h1>
+      </div>
+    </ion-col>
+                
+                <IonButton onClick = {this.handleClick} className ="countButton">Count</IonButton>
             </div>
 
         )
