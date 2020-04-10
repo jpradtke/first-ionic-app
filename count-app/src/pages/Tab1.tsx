@@ -7,9 +7,13 @@ import Smiley from "./smiley.jpg"
 import './Tab1.css';
 import Count from "./count"
 
+
+
 const Tab1: React.FC = () => {
   return (
     <IonPage>
+      
+     
        <IonHeader translucent>
       <IonToolbar>
         <IonTitle>The Counter</IonTitle>

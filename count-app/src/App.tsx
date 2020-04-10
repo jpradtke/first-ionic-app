@@ -7,7 +7,7 @@ import {
   IonRouterOutlet,
   IonTabBar,
   IonTabButton,
-  IonTabs
+  IonTabs, IonRefresher, IonRefresherContent, IonContent
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { ellipse, square, gameControllerOutline } from 'ionicons/icons';
@@ -34,9 +34,28 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
+import { RefresherEventDetail } from '@ionic/core';
+
+function doRefresh(event: CustomEvent<RefresherEventDetail>) {
+  console.log('Begin async operation');
+
+  setTimeout(() => {
+    console.log('Async operation has ended');
+    event.detail.complete();
+  }, 2000);
+}
+
+
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
+    <IonContent>
+    <IonRefresher slot="fixed" onIonRefresh={doRefresh}>
+        <IonRefresherContent></IonRefresherContent>
+      </IonRefresher>
+    </IonContent>
+      
+      
       <IonTabs>
         <IonRouterOutlet>
           <Route path="/tab1" component={Tab1} exact={true} />
